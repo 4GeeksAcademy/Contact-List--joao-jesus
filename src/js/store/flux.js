@@ -88,11 +88,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
             changeColor: (index, color) => {
                 const store = getStore();
-                const demo = store.demo.map((elm, i) => {
+                const demo = store.contact.map((elm, i) => {
                     if (i === index) elm.background = color;
                     return elm;
                 });
-                setStore({ demo: demo });
+                setStore({ contact: demo });
             }
         }
     };
