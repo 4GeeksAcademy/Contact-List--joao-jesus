@@ -9,28 +9,29 @@ export const Contact = () => {
     const params = useParams();
 
     return (
-        <form className='cardContact'>
+       <div className='container'>
             <div className="form-group">
-                <label htmlFor="exampleInputEmail1">Email address</label>
-                <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-                <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
-                <label htmlFor="exampleInputEmail1">Email address</label>
-                <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-                <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
+                <label htmlFor="exampleInputName">Full Name</label>
+                <input type="text" className="form-control" id="InputFullName" aria-describedby="" />
+                <small id="emailHelp" className="form-text text-muted">We'll never share your data with anyone else.</small>
+                <div className="form-group">
+            <label htmlFor="exampleInputEmail1">Email address</label> 
+             <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+             
+             <label className="phoneNumber form-check-label" htmlFor="adress">Phone number</label>
+             <input type="number" className="form-control" id="exampleInputEmail1" aria-describedby="PhoneNumber" />
+             
+             <label className="address form-check-label" htmlFor="adress">Adress</label>
+             <input type="text" className="form-control" id="adress" aria-describedby="address" />
+             </div>
+           
+    
             </div>
-            <div className="form-group">
-                <label htmlFor="exampleInputPassword1">Password</label>
-            </div>
-            <div className="form-group form-check">
-            <input type="name" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" /><Link to="/Home" className="manageContacts">Go to Home page</Link>
-                <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
-            </div>
+           
             <button type="submit" className="btn btn-primary">Submit</button>
-            
-        </form>
+            <Link to="/Home" className="manageContacts">Go to Home page</Link>
+        </div>
     );
 };
 
-Contact.propTypes = {
-    params: PropTypes.object
-};
+

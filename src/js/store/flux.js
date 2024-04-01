@@ -2,11 +2,10 @@ const getState = ({ getStore, getActions, setStore }) => {
     return {
         store: {
             contact: {
-                full_name: null,
-                address: null,
-                phone: null,
-                email: null,
-                agenda_slug: "ed1_agenda"
+                name: "",
+                phone: "",
+                email: "",
+                address: ""
             },
             contactList: [],
             agenda_slug: "ed1_agenda"
@@ -25,9 +24,9 @@ const getState = ({ getStore, getActions, setStore }) => {
                 setStore(prevState => ({
                     contact: {
                         ...prevState.contact,
-                        full_name: name,
-                        email: email,
+                        name: name,
                         phone: phone,
+                        email: email,
                         address: address
                     }
                 }));
@@ -86,14 +85,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log(error);
 				});
 			},
-            changeColor: (index, color) => {
-                const store = getStore();
-                const demo = store.contact.map((elm, i) => {
-                    if (i === index) elm.background = color;
-                    return elm;
-                });
-                setStore({ contact: demo });
-            }
+            
         }
     };
 };
