@@ -7,7 +7,7 @@ import { Context } from "../store/appContext";
 export const Contact = () => {
     const { store, actions } = useContext(Context);
     const params = useParams();
-
+       
     return (
        <div className='container'>
             <div className="form-group">

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { Context } from ""; // Import your Context object
+import { Context } from "../store/appContext"; // Import your Context object
 import "../../styles/home.css";
 
 export const Home = () => {
@@ -20,20 +20,20 @@ export const Home = () => {
             />
             <div className="message" style={{ marginLeft: '20px' }}>
               <h5 className="cardName">
-                <i className="fa fa-pen"></i>
-                <i className="fa fa-trash"></i>
+                <i className="fa fa-pen"></i> 
+                <i className="fa fa-trash"></i> 
               </h5>
               <h5 className="card-title">
-                <i className="fa fa-skull"></i>
+                <i className="fa fa-skull"></i>{store.contact.name}
               </h5>
               <h6 className="card-subtitle mb-2 text-muted">
-                <i className="fa fa-heart"></i>
+                <i className="fa fa-heart"></i>{store.contact.email}
               </h6>
               <p className="card-text">
-                <i className="fa fa-skull"></i>
+                <i className="fa fa-skull"></i>{store.contact.phone}
               </p>
               <h6 className="card-subtitle mb-2 text-muted">
-                <i className="fa fa-heart"></i>
+                <i className="fa fa-heart"></i>{store.contact.address}
               </h6>
             </div>
           </div>
