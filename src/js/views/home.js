@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { Context } from "../path/to/your/store/context"; // Import your Context object
+import { Context } from ""; // Import your Context object
 import "../../styles/home.css";
 
 export const Home = () => {
@@ -24,16 +24,16 @@ export const Home = () => {
                 <i className="fa fa-trash"></i>
               </h5>
               <h5 className="card-title">
-                <i className="fa fa-skull"></i>{store.contact.name}
+                <i className="fa fa-skull"></i>
               </h5>
               <h6 className="card-subtitle mb-2 text-muted">
-                <i className="fa fa-heart"></i>{store.contact.email}
+                <i className="fa fa-heart"></i>
               </h6>
               <p className="card-text">
-                <i className="fa fa-skull"></i>{store.contact.phone}
+                <i className="fa fa-skull"></i>
               </p>
               <h6 className="card-subtitle mb-2 text-muted">
-                <i className="fa fa-heart"></i>{store.contact.address}
+                <i className="fa fa-heart"></i>
               </h6>
             </div>
           </div>

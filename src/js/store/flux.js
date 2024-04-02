@@ -33,7 +33,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             },
             createContact: () => {
                 const store = getStore();
-                fetch('https://playground.4geeks.com/api/fake/contact', {
+                fetch('https://playground.4geeks.com/contact/agendas/ed1_agenda', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -54,7 +54,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			showContacts: (contactId) => {
 				const store = getStore();
-				fetch(`https://playground.4geeks.com/api/fake/${contactId}`, {
+				fetch(`https://playground.4geeks.com/agendas/${contactId}`, {
 					method: 'GET',
 					headers: {
 						'Content-Type': 'application/json'
@@ -70,7 +70,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			deleteContacts: (contactId) => {
 				const store = getStore();
-				fetch(`https://playground.4geeks.com/api/fake/${contactId}`, {
+				fetch(`https://playground.4geeks.com/agendas/{}${contactId}`, {
 					method: 'DELETE',
 					headers: {
 						'Content-Type': 'application/json'
