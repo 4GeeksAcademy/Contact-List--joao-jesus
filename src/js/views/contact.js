@@ -1,58 +1,38 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React from "react";
+import { Link } from "react-router-dom";
+import { Context } from "../store/appContext"; // Import your Context object
 import "../../styles/home.css";
-import PropTypes from "prop-types";
-import { Link, useParams } from "react-router-dom";
-import { Context } from "../store/appContext";
+import ContactCard from "../component/contactCard";
 
 export const Contact = () => {
-    const { store, actions } = useContext(Context);
-    const params = useParams();
-    const handleClick =() =>{
-        
-    }
-    const handleChange =(event) =>{
-        actions(store.Contact.name)
-    }
-    return (
-       <div className='container'>
-            <div className="form-group">
-                <label htmlFor="exampleInputName">Full Name</label>
-                <input type="text" 
-                className="form-control" 
-                onChange={handlechange} 
-                id="InputFullName" 
-                aria-describedby="" />
-                <small id="emailHelp" 
-                className="form-text text-muted">We'll never share your data with anyone else.</small>
-                <div className="form-group">
-                <label htmlFor="exampleInputEmail1">Email address</label> 
-                <input type="email" 
-                className="form-control" 
-                id="exampleInputEmail1" 
-                aria-describedby="emailHelp" />
-             
-                <label className="phoneNumber form-check-label" 
-                htmlFor="adress">Phone number</label>
-                <input type="number" 
-                className="form-control" 
-                id="exampleInputEmail1" 
-                aria-describedby="PhoneNumber" />
-             
-                <label className="address form-check-label" 
-                htmlFor="adress">Adress</label>
-                <input type="text" 
-                className="form-control" 
-                id="adress" 
-                aria-describedby="address" />
-                </div>
-           
-    
-            </div>
-           
-            <button type="submit" className="btn btn-primary" onclick={actions.addContactList}>Submit</button>
-            <Link to="/Home" className="manageContacts">Go to Home page</Link>
-        </div>
-    );
-};
+  const context = React.useContext(Context);
 
+  const { store, actions } = context;
+
+  React.useEffect(() => {
+    actions.getContacts();
+  }, []);
+
+  return (
+    <div className="container">
+      <Link className="btn btn-success m-2" to="/addContact">
+        Add Contact
+      </Link>
+      {store?.contactList?.length > 0 &&
+        store.contactList.map((contact) => {
+          const { id, name, phone, address, email } = contact;
+          return (
+            <ContactCard
+              key={`card-${id}`}
+              id={id}
+              name={name}
+              email={email}
+              phone={phone}
+              address={address}
+            ></ContactCard>
+          );
+        })}
+    </div>
+  );
+};
 

@@ -1,94 +1,112 @@
-const getState = ({ getStore, getActions, setStore }) => {
-    return {
-        store: {
-            contact: {
-                name: "",
-                phone: "",
-                email: "",
-                address: ""
-            },
-            contactList: [],
-            agenda_slug: "ed1_agenda"
-        },
-        actions: {
-            addContactList: (arr) => {
-                const store = getStore();
-                setStore({ contactList: [...store.contactList, arr] });
-                getActions().changeColor(0, "green");
-            },
-            loadSomeData: () => {
-                // Placeholder function for loading data asynchronously
-                // fetch().then().then(data => setStore({ "foo": data.bar }))
-            },
-            addContact: (name, email, phone, address) => {
-                setStore(prevState => ({
-                    contact: {
-                        ...prevState.contact,
-                        name: name,
-                        phone: phone,
-                        email: email,
-                        address: address
-                    }
-                }));
-            },
-            createContact: () => {
-                const store = getStore();
-                fetch('https://playground.4geeks.com/contact/agendas/ed1_agenda', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(store.contact),
-                })
-                .then(response => response.json())
-                .then(resAsJson => {
-                    console.log(resAsJson);
-                    // Update store with the newly created contact data if needed
-                    // setStore({ contact: resAsJson });
-                    return resAsJson.id;
-                })
-                .catch(error => {
-                    console.error('Error creating contact:', error);
-                });
-            },
+const SLUG = "johny-agenda";
 
-			showContacts: (contactId) => {
-				const store = getStore();
-				fetch(`https://playground.4geeks.com/agendas/${contactId}`, {
-					method: 'GET',
-					headers: {
-						'Content-Type': 'application/json'
-					},
-				})
-				.then(res => res.json())
-				.then(resAsJson => {
-					console.log(resAsJson);
-				})
-				.catch(error => {
-					console.log(error);
-				});
-			},
-			deleteContacts: (contactId) => {
-				const store = getStore();
-				fetch("https://playground.4geeks.com/agendas/ed1_agenda/contact" + contactId, {
-					method: 'DELETE',
-					headers: {
-						'Content-Type': 'application/json'
-					},
-				})
-				.then(res => res.json())
-				.then(resAsJson => {
-					console.log(resAsJson);
-					getAllContacts()
-				})
-				.catch(error => {
-					console.log(error);
-				});
-			},
-            
-        }
-    };
+const getState = ({ getStore, getActions, setStore }) => {
+  return {
+    store: {
+      contactList: [
+        // {
+        // 	id:"",
+        // 	name: "",
+        // 	email: "",
+        // 	phone: "",
+        // 	address: "",
+        // },
+      ],
+    },
+    actions: {
+      getContacts: () => {
+        fetch(
+          `https://playground.4geeks.com/contact/agendas/${SLUG}/contacts`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        )
+          .then((response) => response.json())
+          .then((resAsJson) => {
+            console.log("resAsJson");
+            console.log(resAsJson);
+            // setStore(resAsJson);
+
+            setStore({ contactList: [...resAsJson.contacts] });
+          })
+          .catch((error) => {
+            console.error("Error creating contact:", error);
+          });
+      },
+      createContact: (formData) => {
+        const store = getStore();
+        fetch(
+          `https://playground.4geeks.com/contact/agendas/${SLUG}/contacts`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+          }
+        )
+          .then((response) => response.json())
+          .then((resAsJson) => {
+            setStore({ contactList: [...store.contactList, resAsJson] });
+
+            // return resAsJson.id;
+          })
+          .catch((error) => {
+            console.error("Error creating contact:", error);
+          });
+      },
+      deleteContact: (id) => {
+        const store = getStore();
+
+        fetch(
+          `https://playground.4geeks.com/contact/agendas/${SLUG}/contacts/${id}`,
+          {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        )
+          .then((response) => response.json())
+          .then((resAsJson) => {
+            console.log("resAsJson");
+            console.log(resAsJson);
+            //setStore({ contactList: [...store.contactList, resAsJson] });
+
+            // return resAsJson.id;
+          })
+          .catch((error) => {
+            console.error("Error deleting contact:", error);
+          });
+      },
+
+      exampleFunction: () => {
+        getActions().changeColor(0, "green");
+      },
+     /* loadSomeData: () => {
+        /**
+					fetch().then().then(data => setStore({ "foo": data.bar }))
+				*/
+      },
+      /*changeColor: (index, color) => {
+        //get the store
+        const store = getStore();
+
+        //we have to loop the entire demo array to look for the respective index
+        //and change its color
+        const demo = store.demo.map((elm, i) => {
+          if (i === index) elm.background = color;
+          return elm;
+        });
+
+        //reset the global store
+        setStore({ demo: demo });
+      },
+    },*/
+  };
 };
 
 export default getState;
-
