@@ -56,7 +56,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                 }).then((response) => response.json())
                 .then((resAsJson) => {
                     console.log("Deleted contact:", resAsJson);
-                })
+                }).then((getActions().getContacts()))
                 .catch((error) => {
                     console.error("Error deleting contact:", error);
                 });
