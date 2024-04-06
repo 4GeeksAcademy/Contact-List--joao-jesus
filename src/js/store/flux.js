@@ -41,27 +41,48 @@ const getState = ({ getStore, getActions, setStore }) => {
                 });
             },
 
-           /* editContact:() => {
-                
-                
+            /*editContact: (id, updatedContactData) => {
+                fetch(`https://playground.4geeks.com/contact/agendas/${SLUG}/contacts/${id}`, {
+                    method: "PUT", // Use PUT method for full updates, or PATCH for partial updates
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(updatedContactData), // Send updated contact data in the request body
+                })
+                .then((response) => response.json())
+                .then((resAsJson) => {
+                    console.log("Edited contact:", resAsJson);
+                    return getActions().getContacts(); // Refresh contact list after editing
+                })
+                .then(() => {
+                    console.log("Contacts refreshed after editing.");
+                })
+                .catch((error) => {
+                    console.error("Error editing contact:", error);
+                });
             },*/
+            
 
             deleteContact: (id) => {
-                console.log(id)
                 fetch(`https://playground.4geeks.com/contact/agendas/${SLUG}/contacts/${id}`, {
                     method: "DELETE",
                     headers: {
                         "Content-Type": "application/json",
-                    },
-                }).then((response) => response.json())
+                    }
+                })
+                .then((response) => response.json())
                 .then((resAsJson) => {
                     console.log("Deleted contact:", resAsJson);
-                }).then((getActions().getContacts()))
+                    return getActions().getContacts(); // Return the promise chain
+                })
+                .then(() => {
+                    console.log("Contacts refreshed after deletion.");
+                })
                 .catch((error) => {
                     console.error("Error deleting contact:", error);
                 });
-                
             },
+            
             exampleFunction: () => {
                 getActions().changeColor(0, "green");
             },
