@@ -27,6 +27,7 @@ export const AddContact = () => {
         <label htmlFor="name">Full Name</label>
         <input
           type="text"
+          maxLength= "100"
           className="form-control"
           onChange={handleChange}
           id="name"
@@ -38,6 +39,7 @@ export const AddContact = () => {
           <input
             onChange={handleChange}
             type="email"
+            maxLength= "70"
             className="form-control"
             id="email"
             aria-describedby="emailHelp"
@@ -48,10 +50,12 @@ export const AddContact = () => {
           </label>
           <input
             onChange={handleChange}
-            type="number"
+            type="tel"
+            
+            maxLength= "15"
             className="form-control"
             id="phone"
-            aria-describedby="PhoneNumber"
+          
           />
 
           <label className="address form-check-label" htmlFor="address">
@@ -62,9 +66,11 @@ export const AddContact = () => {
             type="text"
             className="form-control"
             id="address"
+            maxLength= "100"
             aria-describedby="address"
           />
-        </div><small id="emailHelp" className="form-text text-muted">
+        </div>
+        <small id="emailHelp" className="form-text text-muted">
           We'll never share your data with anyone else.
         </small>
       </div>

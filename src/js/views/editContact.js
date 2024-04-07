@@ -72,7 +72,7 @@ export const EditContact = () => {
             id="phone"
             aria-describedby="PhoneNumber"
             defaultValue={contactToEditData?.phone}
-            maxLength={15}
+            maxLength= "15"
           />
 
           <label className="address form-check-label" htmlFor="address">
