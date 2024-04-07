@@ -21,7 +21,7 @@ export default function contactCard({ id, name, email, phone, address }) {
           />
           <div className="message">
             <div className="cardName">
-              <h2 className="card-title">{name}</h2>
+              <h4 className="card-title">{name}</h4>
             </div>
             <h6 className="card-subtitle mb-2 text-muted">
               <i className="fa fa-envelope m-2"></i>

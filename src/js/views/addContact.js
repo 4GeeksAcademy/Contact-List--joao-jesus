@@ -27,7 +27,7 @@ export const AddContact = () => {
         <label htmlFor="name">Full Name</label>
         <input
           type="text"
-          maxLength= "100"
+          maxLength= "50"
           className="form-control"
           onChange={handleChange}
           id="name"

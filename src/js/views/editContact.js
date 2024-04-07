@@ -45,7 +45,7 @@ export const EditContact = () => {
           id="name"
           aria-describedby=""
           defaultValue={contactToEditData?.name}
-          maxLength={200}
+          maxLength= "70"
         />
         <small id="emailHelp" className="form-text text-muted">
           We'll never share your data with anyone else.
@@ -55,11 +55,12 @@ export const EditContact = () => {
           <input
             onChange={handleChange}
             type="email"
+            maxLength= "100"
             className="form-control"
             id="email"
             aria-describedby="emailHelp"
             defaultValue={contactToEditData?.email}
-            maxLength={30}
+            
           />
 
           <label className="phoneNumber form-check-label" htmlFor="phone">
@@ -67,7 +68,7 @@ export const EditContact = () => {
           </label>
           <input
             onChange={handleChange}
-            type="number"
+            type="tel"
             className="form-control"
             id="phone"
             aria-describedby="PhoneNumber"
@@ -85,7 +86,7 @@ export const EditContact = () => {
             id="address"
             aria-describedby="address"
             defaultValue={contactToEditData?.address}
-            maxLength={300}
+            maxLength= "100"
           />
         </div>
       </div>
