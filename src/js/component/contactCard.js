@@ -12,7 +12,7 @@ export default function contactCard({ id, name, email, phone, address }) {
   return (
     <div className="card m-2 ml-2">
       <div className="card-body bg-light position-relative d-flex justify-content-between">
-        <div className="d-inline-flex align-items-center">
+        <div className="d-inline-flex">
           <img
             src="https://img.freepik.com/free-vector/illustration-user-avatar-icon_53876-5907.jpg?w=740&t=st=1711655427~exp=1711656027~hmac=07d9a09345f1239e2c931a2751ad001fe484ded8f928e5b8314b0652ff7ee4f3/"
             style={{ height: "64px", width: "64px" }}
@@ -37,7 +37,7 @@ export default function contactCard({ id, name, email, phone, address }) {
             </h6>
           </div>
         </div>
-        <div className="trashEdit">
+        <div className="trashEditBtn">
           <i
             className="fa fa-pen m-2"
             onClick={() => navigate(`/editContact/${id}`)}
