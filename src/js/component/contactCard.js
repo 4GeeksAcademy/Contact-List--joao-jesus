@@ -10,43 +10,44 @@ export default function contactCard({ id, name, email, phone, address }) {
   let navigate = useNavigate();
 
   return (
-    <div className="card m-2">
-      <div className="card-body">
+    <div className="card m-2 ml-2">
+      <div className="card-body bg-light">
         <div className="d-inline-flex">
           <img
             src="https://img.freepik.com/free-vector/illustration-user-avatar-icon_53876-5907.jpg?w=740&t=st=1711655427~exp=1711656027~hmac=07d9a09345f1239e2c931a2751ad001fe484ded8f928e5b8314b0652ff7ee4f3/"
             style={{ height: "64px", width: "64px" }}
-            className="float-left rounded-circle ml-2"
+            className="float-left rounded-circle m-3"
             alt="User Avatar"
           />
-          <div className="message" style={{ marginLeft: "20px" }}>
-            <h5 className="cardName">
-              <i
-                className="fa fa-pen"
-                onClick={() => navigate(`/editContact/${id}`)}
-              ></i>
-              <i
-                className="fa fa-trash"
-                onClick={() => actions.deleteContact(id)}
-              ></i>
-            </h5>
-            <h5 className="card-title">
-              <i className="fa fa-skull"></i>
+          <div className="message">
+            <div className="cardName"> <h2 className="card-title">
               {name}
-            </h5>
+            </h2>
+              
+            </div>
+           
             <h6 className="card-subtitle mb-2 text-muted">
-              <i className="fa fa-heart"></i>
+              <i className="fa fa-envelope m-2"></i>
               {email}
             </h6>
             <p className="card-text">
-              <i className="fa fa-skull"></i>
+              <i className="fa fa-phone m-2"></i>
               {phone}
             </p>
             <h6 className="card-subtitle mb-2 text-muted">
-              <i className="fa fa-heart"></i>
+              <i className="fa fa-location-arrow m-2"></i>
               {address}
             </h6>
           </div>
+          <div className="trashEdit d-flex justify-content-end"><i
+                className="fa fa-pen m-2 ml-5"
+                onClick={() => navigate(`/editContact/${id}`)}
+              ></i>
+              <i
+                className="fa fa-trash m-2"
+                onClick={() => actions.deleteContact(id)}
+              ></i></div>
+          
         </div>
       </div>
     </div>
