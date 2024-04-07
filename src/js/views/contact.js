@@ -14,7 +14,7 @@ export const Contact = () => {
   }, []);
 
   return (
-    <div className="row container sm-auto mt-3">
+    <div className="container mt-3">
       <div className="row">
         <div className="col"></div>
         <div className="col-auto"><Link className="btn btn-success" to="/addContact">
