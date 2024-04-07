@@ -49,7 +49,7 @@ export const EditContact = () => {
         <small id="emailHelp" className="form-text text-muted">
           We'll never share your data with anyone else.
         </small>
-        <div className="form-group">
+        <div className="form-group ">
           <label htmlFor="email">Email address</label>
           <input
             onChange={handleChange}
