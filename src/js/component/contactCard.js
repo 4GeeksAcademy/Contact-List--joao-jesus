@@ -1,11 +1,13 @@
-
 import React from "react";
 import { Context } from "../store/appContext"; // Import your Context object
+import { useNavigate } from "react-router-dom";
 
 export default function contactCard({ id, name, email, phone, address }) {
   const context = React.useContext(Context);
 
   const { store, actions } = context;
+
+  let navigate = useNavigate();
 
   return (
     <div className="card m-2">
@@ -19,8 +21,10 @@ export default function contactCard({ id, name, email, phone, address }) {
           />
           <div className="message" style={{ marginLeft: "20px" }}>
             <h5 className="cardName">
-              <i className="fa fa-pen" 
-              onClick={() => actions.editContact(id)}></i>
+              <i
+                className="fa fa-pen"
+                onClick={() => navigate(`/editContact/${id}`)}
+              ></i>
               <i
                 className="fa fa-trash"
                 onClick={() => actions.deleteContact(id)}
