@@ -35,7 +35,7 @@ export const EditContact = () => {
   };
 
   return (
-    <div className="container">
+    <div className="container sm-auto mt-3">
       <div className="form-group">
         <label htmlFor="name">Full Name</label>
         <input
@@ -88,12 +88,12 @@ export const EditContact = () => {
 
       <button
         type="submit"
-        className="btn btn-primary"
+        className="updatedContacts btn btn-success mt-3 d-flex justify-content-around"
         onClick={() => actions.updateContact(contactToEditData.id, formData)}
       >
         Update contact
       </button>
-      <Link to="/" className="manageContacts">
+      <Link to="/" className="manageContacts btn btn-primary mt-3 " >
         Go to Contacts page
       </Link>
     </div>

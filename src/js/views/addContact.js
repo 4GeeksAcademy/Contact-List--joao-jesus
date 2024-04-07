@@ -21,7 +21,7 @@ export const AddContact = () => {
   };
 
   return (
-    <div className="container">
+    <div className="container sm-auto mt-3">
       <div className="form-group">
         <label htmlFor="name">Full Name</label>
         <input
@@ -70,12 +70,12 @@ export const AddContact = () => {
 
       <button
         type="submit"
-        className="btn btn-primary"
+        className="btn btn-primary btn btn-success mt-3 d-flex justify-content-around"
         onClick={() => actions.createContact(formData)}
       >
         Submit
       </button>
-      <Link to="/" className="manageContacts">
+      <Link to="/" className="manageContacts btn btn-primary mt-3">
         Go to Contacts page
       </Link>
     </div>

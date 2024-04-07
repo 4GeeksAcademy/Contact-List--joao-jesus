@@ -14,10 +14,13 @@ export const Contact = () => {
   }, []);
 
   return (
-    <div className="container">
-      <Link className="btn btn-success m-2" to="/addContact">
+    <div className="row container sm-auto mt-3">
+      <div className="row">
+        <div className="col"></div>
+        <div className="col-auto"><Link className="btn btn-success" to="/addContact">
         Add Contact
-      </Link>
+      </Link></div>
+      </div>
       {store?.contactList?.length > 0 &&
         store.contactList.map((contact) => {
           const { id, name, phone, address, email } = contact;
