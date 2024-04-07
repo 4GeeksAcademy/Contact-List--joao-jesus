@@ -20,7 +20,8 @@ export const AddContact = () => {
     setFormData({ ...formData, [id]: value });
   };
 
-  return (
+  return (<>
+    <h5 className="titleAddContact text-center mt-5">Add New Contact</h5>
     <div className="container sm-auto mt-3">
       <div className="form-group">
         <label htmlFor="name">Full Name</label>
@@ -31,9 +32,7 @@ export const AddContact = () => {
           id="name"
           aria-describedby=""
         />
-        <small id="emailHelp" className="form-text text-muted">
-          We'll never share your data with anyone else.
-        </small>
+        
         <div className="form-group">
           <label htmlFor="email">Email address</label>
           <input
@@ -65,7 +64,9 @@ export const AddContact = () => {
             id="address"
             aria-describedby="address"
           />
-        </div>
+        </div><small id="emailHelp" className="form-text text-muted">
+          We'll never share your data with anyone else.
+        </small>
       </div>
 
       <button
@@ -78,7 +79,7 @@ export const AddContact = () => {
       <Link to="/" className="manageContacts btn btn-primary mt-3">
         Go to Contacts page
       </Link>
-    </div>
+    </div></>
   );
 };
 
